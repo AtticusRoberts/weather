@@ -2,20 +2,13 @@
   <div id="app">
     <img src="./assets/map.png" id = "map" z-index=0>
     <p class="data">Code | Clouds | Wind | Visibility | Temp | City</p>
-
-    <place name="Charlottesville" code="KCHO" x=415 y=780></place>
-    <place name="Bridgewater" code="KVBW" x=50 y=530></place>
-    <place name="Weyers Cave" code="KSHD" x=200 y=590></place>
-    <place name="Gordonsville" code="KGVE" x=650 y=730></place>
-    <place name="Waynesboro" code="KW13" x=160 y=750></place>
-    <place name="Washington" code="KIAD" x=1360 y=100></place>
-    <!-- <img src="./assets/arrow.png"> -->
+    <place v-for="(s, index) in stations" v-bind:name="stations[index].City" v-bind:code="stations[index].Station" v-bind:x="coordinates[index].x" v-bind:y="coordinates[index].y"></place>
   </div>
 </template>
 
 <script>
 import place from './components/place.vue'
-
+import axios from 'axios'
 export default {
   name: 'app',
   components: {
@@ -24,7 +17,23 @@ export default {
   data: function() {
     return {
         mapUrl: null,
+        stations: {
+
+        },
+        coordinates: [
+          {x: 415, y: 800},
+          {x: 50, y: 550},
+          {x: 200, y: 610},
+          {x: 650, y: 750},
+          {x: 160, y: 770},
+          {x: 1360, y: 100}
+        ]
     }
+  },
+  mounted() {
+    axios.post("http://localhost:8000/api/getAllWeather").then(res => (
+      this.stations = res.data
+    ));
   }
 }
 

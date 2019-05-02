@@ -51,7 +51,8 @@ export default {
     },
     cloud: function() {
       //There are sometimes more elements in the clouds array but I don't know what they mean so I just use the first one
-      if (this.weather.clouds[0].type == "FEW") {document.getElementById(this.code).style.background = "rgb(255,255,255)";document.getElementById(this.code).style.color = "black";}
+      if (!this.weather.clouds[0]) {document.getElementById(this.code).style.background = "rgb(0,0,0,0)";}
+      else if (this.weather.clouds[0].type == "FEW") {document.getElementById(this.code).style.background = "rgb(255,255,255)";document.getElementById(this.code).style.color = "black";}
       else if (this.weather.clouds[0].type == "SCT") {document.getElementById(this.code).style.background = "rgb(200,200,200)";document.getElementById(this.code).style.color = "black";}
       else if (this.weather.clouds[0].type == "BKN") {document.getElementById(this.code).style.background = "rgb(125,125,125)";document.getElementById(this.code).style.color = "white";}
       else if (this.weather.clouds[0].type == "OVC") {document.getElementById(this.code).style.background = "rgb(75,75,75)";document.getElementById(this.code).style.color = "white";}

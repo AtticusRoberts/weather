@@ -12,15 +12,19 @@ class weatherController extends Controller {
   public function get(Request $request) {
     // {Authorization: '654e74a1e003a57b6b44aa3b8b6f88f0'}
     $client = new Client([
-    // Base URI is used with relative requests
     'base_uri' => 'https://wx.wearebraid.com/',
-    // You can set any number of default request options.
     'timeout'  => 2.0,
-]);
-
+  ]);
+    $stations = $client->get('/stations',['Authorization => 654e74a1e003a57b6b44aa3b8b6f88f0']);
     $res = $client->get('/stations'.'/'.$request['code'],['Authorization => 654e74a1e003a57b6b44aa3b8b6f88f0']);
-
-
     return $res;
+  }
+  public function getAll(Request $request) {
+    $client = new Client([
+    'base_uri' => 'https://wx.wearebraid.com/',
+    'timeout'  => 2.0,
+  ]);
+    $stations = $client->get('/stations',['Authorization => 654e74a1e003a57b6b44aa3b8b6f88f0']);
+    return $stations;
   }
 }

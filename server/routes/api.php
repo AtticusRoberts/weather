@@ -5,3 +5,4 @@ header('Access-Control-Allow-Headers: content-type');
 use Illuminate\Http\Request;
 
 Route::post('/getWeather','weatherController@get');
+Route::post('/getAllWeather','weatherController@getAll');
