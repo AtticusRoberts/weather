@@ -1,5 +1,5 @@
 {
-  "name": "front",
+  "name": "weather",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,8 @@
     "jquery": "^3.3.1",
     "p5": "^0.7.3",
     "vue": "^2.6.6",
-    "vue-p5": "^0.7.1"
+    "vue-p5": "^0.7.1",
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
@@ -46,5 +47,17 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtticusRoberts/weather.git"
+  },
+  "author": "Atticus Roberts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AtticusRoberts/weather/issues"
+  },
+  "homepage": "https://github.com/AtticusRoberts/weather#readme"
 }

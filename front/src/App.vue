@@ -2,7 +2,7 @@
   <div id="app">
     <img src="./assets/map.png" id = "map" z-index=0>
     <p class="data">Code | Clouds | Wind | Visibility | Temp | City</p>
-    <place v-for="(s, index) in stations" v-bind:name="stations[index].City" v-bind:code="stations[index].Station" v-bind:x="coordinates[index].x" v-bind:y="coordinates[index].y"></place>
+    <place v-for="(s, index) in stations" v-bind:key="stations[index].Station" v-bind:name="stations[index].City" v-bind:code="stations[index].Station" v-bind:x="coordinates[index].x" v-bind:y="coordinates[index].y"></place>
   </div>
 </template>
 
